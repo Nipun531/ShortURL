@@ -29,6 +29,7 @@ if (token) {
     window.location.href = "/";
   }
 } else {
+  localStorage.removeItem("token");
   window.location.href = "/";
 }
 
