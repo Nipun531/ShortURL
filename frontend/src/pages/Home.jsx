@@ -18,21 +18,12 @@ function today() {
 
 const token = localStorage.getItem("token");
 
-let decoded = null;
 
-if (token) {
-  try {
-    decoded = jwtDecode(token);
-  } catch (err) {
-    console.log("Invalid token");
-    localStorage.removeItem("token");
-    window.location.href = "/";
-  }
-} else {
-  localStorage.removeItem("token");
-  window.location.href = "/";
+if (!token) {
+  return <Navigate to="/" />;
 }
 
+const decoded = jwtDecode(token);
 
 
 export default function Home() {
