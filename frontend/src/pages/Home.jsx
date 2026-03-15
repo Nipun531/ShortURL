@@ -16,7 +16,11 @@ function today() {
   return new Date().toISOString().slice(0, 10);
 }
 
-const token = localStorage.getItem("token");
+
+
+
+export default function Home() {
+  const token = localStorage.getItem("token");
 
 
 if (!token) {
@@ -24,9 +28,7 @@ if (!token) {
 }
 
 const decoded = jwtDecode(token);
-
-
-export default function Home() {
+  
   const [activeNav, setActiveNav] = useState("dashboard");
   const [url, setUrl] = useState("");
   const [links, setLinks] = useState([]);
