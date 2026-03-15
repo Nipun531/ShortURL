@@ -11,7 +11,7 @@ export default function Auth() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate=useNavigate()
 
-  const API_URL='http://localhost:3000'
+  const API_URL='https://shlink-g7xx.onrender.com'
 
   const handleSignUp= async () =>{
     try{
