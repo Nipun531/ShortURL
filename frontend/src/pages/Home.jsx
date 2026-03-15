@@ -17,7 +17,21 @@ function today() {
 }
 
 const token = localStorage.getItem("token");
-const decoded=jwtDecode(token)
+
+let decoded = null;
+
+if (token) {
+  try {
+    decoded = jwtDecode(token);
+  } catch (err) {
+    console.log("Invalid token");
+    localStorage.removeItem("token");
+    window.location.href = "/";
+  }
+} else {
+  window.location.href = "/";
+}
+
 
 
 export default function Home() {
